@@ -376,7 +376,7 @@ void I3G4250D_ReadXYZAngRate(float *pfData)
   /* Multiplied by sensitivity */
   for (i = 0; i < 3; i++)
   {
-    pfData[i] = (float)(RawData[i] * sensitivity);
+    pfData[i] = (float)(RawData[i] * sensitivity)/1000;
   }
 }
 

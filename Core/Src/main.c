@@ -18,9 +18,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "l3gd20.h"
+#include "i3g4250d.h"
 #include "stm32f429i_discovery_lcd.h"
 #include "stm32f429i_discovery_gyroscope.h"
+#include "stm32f429i_discovery_sdram.h"
+#include "fonts.h"
 #include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
@@ -46,7 +48,7 @@
 SPI_HandleTypeDef hspi5;
 
 /* USER CODE BEGIN PV */
-
+volatile uint32_t value;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,6 +73,7 @@ int main(void)
   /* USER CODE BEGIN 1 */
 	float pfData[3];
 	char buffer[20];
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -88,19 +91,24 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  L3GD20_FilterCmd(L3GD20_HIGHPASSFILTER_ENABLE);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI5_Init();
   /* USER CODE BEGIN 2 */
+  BSP_SDRAM_Init();
+  *((uint32_t*)SDRAM_DEVICE_ADDR)=0x12345678;
+  value=*((uint32_t*)SDRAM_DEVICE_ADDR);
+
   BSP_LCD_LayerDefaultInit(1, SDRAM_DEVICE_ADDR);
   BSP_LCD_SelectLayer(1);//select on which layer we write
   BSP_LCD_DisplayOn();//turn on LCD
   BSP_LCD_Clear(LCD_COLOR_BLUE);//clear the LCD on blue s
   BSP_LCD_SetBackColor(LCD_COLOR_BLUE);//set text background color
   BSP_LCD_SetTextColor(LCD_COLOR_WHITE);//set text color
+  BSP_LCD_SetFont(&Font16);
+  BSP_LCD_GetFont();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,7 +116,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	 L3GD20_ReadXYZAngRate(pfData);
+	 I3G4250D_ReadXYZAngRate(pfData);
 	 sprintf(buffer, "x rota: %.4f", pfData[0]);
 	 BSP_LCD_DisplayStringAtLine(1, (uint8_t*) buffer);
 	 sprintf(buffer, "y rota: %.4f", pfData[1]);

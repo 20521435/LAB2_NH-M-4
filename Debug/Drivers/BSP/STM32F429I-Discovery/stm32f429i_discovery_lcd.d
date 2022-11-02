@@ -36,15 +36,15 @@ Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_lcd.o: \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_sdram.h \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\fonts.h \
+ d:\ce224\lab2\utilities\fonts\fonts.h \
  d:\ce224\lab2\drivers\bsp\components\ili9341\ili9341.h \
  d:\ce224\lab2\drivers\bsp\components\common\lcd.h \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font24.c \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\fonts.h \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font20.c \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font16.c \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font12.c \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font8.c
+ d:\ce224\lab2\utilities\fonts\font24.c \
+ d:\ce224\lab2\utilities\fonts\fonts.h \
+ d:\ce224\lab2\utilities\fonts\font20.c \
+ d:\ce224\lab2\utilities\fonts\font16.c \
+ d:\ce224\lab2\utilities\fonts\font12.c \
+ d:\ce224\lab2\utilities\fonts\font8.c
 ../Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_lcd.h:
 ../Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -81,12 +81,12 @@ C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 ../Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_sdram.h:
-c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\fonts.h:
+d:\ce224\lab2\utilities\fonts\fonts.h:
 d:\ce224\lab2\drivers\bsp\components\ili9341\ili9341.h:
 d:\ce224\lab2\drivers\bsp\components\common\lcd.h:
-c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font24.c:
-c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\fonts.h:
-c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font20.c:
-c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font16.c:
-c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font12.c:
-c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\utilities\fonts\font8.c:
+d:\ce224\lab2\utilities\fonts\font24.c:
+d:\ce224\lab2\utilities\fonts\fonts.h:
+d:\ce224\lab2\utilities\fonts\font20.c:
+d:\ce224\lab2\utilities\fonts\font16.c:
+d:\ce224\lab2\utilities\fonts\font12.c:
+d:\ce224\lab2\utilities\fonts\font8.c:

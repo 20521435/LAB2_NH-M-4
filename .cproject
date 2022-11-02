@@ -52,6 +52,7 @@
 									<listOptionValue builtIn="false" value="&quot;C:\Users\DuyKhang\STM32Cube\Repository\STM32Cube_FW_F4_V1.27.1\Drivers\BSP\STM32F429I-Discovery&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\DuyKhang\STM32Cube\Repository\STM32Cube_FW_F4_V1.27.1\Drivers\BSP\Components\l3gd20&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\DuyKhang\STM32Cube\Repository\STM32Cube_FW_F4_V1.27.1\Drivers\BSP\Components\i3g4250d&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\DuyKhang\STM32Cube\Repository\STM32Cube_FW_F4_V1.27.1\Utilities\Fonts&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.446464884" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

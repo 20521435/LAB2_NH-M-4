@@ -32,7 +32,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/Components/l3gd20/l3gd20.h \
+ C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/Components/i3g4250d/i3g4250d.h \
  c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\common\gyro.h \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_lcd.h \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.h \
@@ -41,7 +41,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\ili9341\ili9341.h \
  c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\common\lcd.h \
  C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_gyroscope.h \
- c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\l3gd20\l3gd20.h
+ c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\l3gd20\l3gd20.h \
+ c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\common\gyro.h \
+ C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_sdram.h \
+ C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Utilities/Fonts/fonts.h
 ../Core/Inc/main.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -76,7 +79,7 @@ C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
-C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/Components/l3gd20/l3gd20.h:
+C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/Components/i3g4250d/i3g4250d.h:
 c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\common\gyro.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_lcd.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.h:
@@ -86,3 +89,6 @@ c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\compo
 c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\common\lcd.h:
 C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_gyroscope.h:
 c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\l3gd20\l3gd20.h:
+c:\users\duykhang\stm32cube\repository\stm32cube_fw_f4_v1.27.1\drivers\bsp\components\common\gyro.h:
+C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_sdram.h:
+C:/Users/DuyKhang/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.1/Utilities/Fonts/fonts.h:

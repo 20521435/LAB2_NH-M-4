@@ -82,7 +82,6 @@ int main(void)
   BSP_GYRO_Init();
   BSP_LCD_Init();
   HAL_SPI_Init(&hspi5);
-  L3GD20_Init(L3GD20_AXES_ENABLE);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -90,7 +89,6 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
   L3GD20_FilterCmd(L3GD20_HIGHPASSFILTER_ENABLE);
-  L3GD20_FilterConfig(L3GD20_HPM_NORMAL_MODE_RES);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -100,7 +98,7 @@ int main(void)
   BSP_LCD_LayerDefaultInit(1, SDRAM_DEVICE_ADDR);
   BSP_LCD_SelectLayer(1);//select on which layer we write
   BSP_LCD_DisplayOn();//turn on LCD
-  BSP_LCD_Clear(LCD_COLOR_BLUE);//clear the LCD on blue color
+  BSP_LCD_Clear(LCD_COLOR_BLUE);//clear the LCD on blue s
   BSP_LCD_SetBackColor(LCD_COLOR_BLUE);//set text background color
   BSP_LCD_SetTextColor(LCD_COLOR_WHITE);//set text color
   /* USER CODE END 2 */
@@ -110,16 +108,14 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  L3GD20_ReadXYZAngRate(pfData);
-	  //BSP_GYRO_GetXYZ(pfData);
-	  //I3G4250D_ReadXYZAngRate(pfData);
-	 sprintf(buffer, "x: %f\n", pfData[0]);
+	 L3GD20_ReadXYZAngRate(pfData);
+	 sprintf(buffer, "x rota: %.4f", pfData[0]);
 	 BSP_LCD_DisplayStringAtLine(1, (uint8_t*) buffer);
-	 sprintf(buffer, "y: %f\n", pfData[1]);
+	 sprintf(buffer, "y rota: %.4f", pfData[1]);
 	 BSP_LCD_DisplayStringAtLine(3, (uint8_t*) buffer);
-	 sprintf(buffer, "z: %f\n", pfData[2]);
+	 sprintf(buffer, "z rota: %.4f", pfData[2]);
 	 BSP_LCD_DisplayStringAtLine(5, (uint8_t*) buffer);
-	 //HAL_Delay(2000);
+	 HAL_Delay(2000);
 
     /* USER CODE BEGIN 3 */
   }

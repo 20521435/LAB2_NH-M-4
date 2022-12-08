@@ -9,4 +9,4 @@
 ../Drivers/BSP/Components/l3gd20/l3gd20.c:291:6:L3GD20_FilterConfig	24	static
 ../Drivers/BSP/Components/l3gd20/l3gd20.c:315:6:L3GD20_FilterCmd	24	static
 ../Drivers/BSP/Components/l3gd20/l3gd20.c:335:9:L3GD20_GetDataStatus	16	static
-../Drivers/BSP/Components/l3gd20/l3gd20.c:350:6:L3GD20_ReadXYZAngRate	48	static
+../Drivers/BSP/Components/l3gd20/l3gd20.c:350:6:L3GD20_ReadXYZAngRate	56	static

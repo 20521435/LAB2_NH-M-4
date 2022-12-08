@@ -18,15 +18,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "i3g4250d.h"
-#include "stm32f429i_discovery_lcd.h"
-#include "stm32f429i_discovery_gyroscope.h"
-#include "stm32f429i_discovery_sdram.h"
-#include "fonts.h"
-#include <stdio.h>
+#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "l3gd20.h"
+#include "stm32f429i_discovery_lcd.h"
+#include "stm32f429i_discovery_gyroscope.h"
+#include "stm32f429i_discovery_sdram.h"
+#include <stdio.h>
+#include "string.h"
+#include "usbd_cdc_if.h"
 
 /* USER CODE END Includes */
 
@@ -49,6 +51,9 @@ SPI_HandleTypeDef hspi5;
 
 /* USER CODE BEGIN PV */
 volatile uint32_t value;
+uint8_t* buffer;
+int receive = 0;
+int count = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,9 +76,14 @@ static void MX_SPI5_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	float pfData[3];
-	char buffer[20];
-
+	float pfData[3] = {0};
+	char angel1[20];
+	char angel2[20];
+	char angel3[20];
+	Point UpArr [] = {{120, 0}, {110, 10}, {130, 10}};
+	Point DownArr [] = {{120, 320}, {110, 310}, {130, 310}};
+	Point LeftArr [] = {{0, 160}, {10, 150}, {10, 170}};
+	Point RightArr [] = {{240, 160}, {230, 150}, {230, 170}};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -94,12 +104,11 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_USB_DEVICE_Init();
   MX_GPIO_Init();
   MX_SPI5_Init();
   /* USER CODE BEGIN 2 */
   BSP_SDRAM_Init();
-  *((uint32_t*)SDRAM_DEVICE_ADDR)=0x12345678;
-  value=*((uint32_t*)SDRAM_DEVICE_ADDR);
 
   BSP_LCD_LayerDefaultInit(1, SDRAM_DEVICE_ADDR);
   BSP_LCD_SelectLayer(1);//select on which layer we write
@@ -107,7 +116,7 @@ int main(void)
   BSP_LCD_Clear(LCD_COLOR_BLUE);//clear the LCD on blue s
   BSP_LCD_SetBackColor(LCD_COLOR_BLUE);//set text background color
   BSP_LCD_SetTextColor(LCD_COLOR_WHITE);//set text color
-  BSP_LCD_SetFont(&Font16);
+  BSP_LCD_SetFont(&Font24);
   BSP_LCD_GetFont();
   /* USER CODE END 2 */
 
@@ -116,16 +125,33 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	 I3G4250D_ReadXYZAngRate(pfData);
-	 sprintf(buffer, "x rota: %.4f", pfData[0]);
-	 BSP_LCD_DisplayStringAtLine(1, (uint8_t*) buffer);
-	 sprintf(buffer, "y rota: %.4f", pfData[1]);
-	 BSP_LCD_DisplayStringAtLine(3, (uint8_t*) buffer);
-	 sprintf(buffer, "z rota: %.4f", pfData[2]);
-	 BSP_LCD_DisplayStringAtLine(5, (uint8_t*) buffer);
-	 HAL_Delay(2000);
 
     /* USER CODE BEGIN 3 */
+	  BSP_GYRO_GetXYZ((float *) pfData);
+	  HAL_Delay(750);
+	  sprintf(angel1, "x rota: %.1f\n", pfData[0]);
+	  CDC_Transmit_HS((uint8_t *) angel1, strlen(angel1));
+	  sprintf(angel2, "y rota: %.1f\n", pfData[1]);
+	  CDC_Transmit_HS((uint8_t *) angel2, strlen(angel2));
+	  sprintf(angel3, "z rota: %.1f\n", pfData[2]);
+	  BSP_LCD_DisplayStringAtLine(1, (uint8_t *) angel3);
+	  BSP_LCD_Clear(LCD_COLOR_BLUE);
+	  CDC_Transmit_HS((uint8_t *) angel3, strlen(angel3));
+	  if (pfData[0] > 0) {
+		  BSP_LCD_FillPolygon(DownArr, 3);
+	  }
+	  if (pfData[0] < 0) {
+		  BSP_LCD_FillPolygon(UpArr, 3);
+	  }
+	  if (pfData[1] > 0) {
+	  		  BSP_LCD_FillPolygon(RightArr, 3);
+	  	  }
+
+	  if (pfData[1] < 0) {
+	  	  		  BSP_LCD_FillPolygon(LeftArr, 3);
+	  	  	  }
+
+
   }
   /* USER CODE END 3 */
 }
@@ -152,17 +178,10 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 8;
-  RCC_OscInitStruct.PLL.PLLN = 360;
+  RCC_OscInitStruct.PLL.PLLN = 336;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
+  RCC_OscInitStruct.PLL.PLLQ = 7;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Activate the Over-Drive mode
-  */
-  if (HAL_PWREx_EnableOverDrive() != HAL_OK)
   {
     Error_Handler();
   }
@@ -231,6 +250,8 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
 
 }
 

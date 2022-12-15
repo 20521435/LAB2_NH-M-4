@@ -116,6 +116,7 @@ int main(void)
   BSP_LCD_Clear(LCD_COLOR_BLUE);//clear the LCD on blue s
   BSP_LCD_SetBackColor(LCD_COLOR_BLUE);//set text background color
   BSP_LCD_SetTextColor(LCD_COLOR_WHITE);//set text color
+  BSP_LCD_DrawCircle(120, 160, 120);
   BSP_LCD_SetFont(&Font24);
   BSP_LCD_GetFont();
   /* USER CODE END 2 */
@@ -137,6 +138,7 @@ int main(void)
 	  BSP_LCD_DisplayStringAtLine(1, (uint8_t *) angel3);
 	  BSP_LCD_Clear(LCD_COLOR_BLUE);
 	  CDC_Transmit_HS((uint8_t *) angel3, strlen(angel3));
+
 	  if (pfData[0] > 0) {
 		  BSP_LCD_FillPolygon(DownArr, 3);
 	  }
@@ -144,12 +146,12 @@ int main(void)
 		  BSP_LCD_FillPolygon(UpArr, 3);
 	  }
 	  if (pfData[1] > 0) {
-	  		  BSP_LCD_FillPolygon(RightArr, 3);
+	  		BSP_LCD_FillPolygon(RightArr, 3);
 	  	  }
 
 	  if (pfData[1] < 0) {
-	  	  		  BSP_LCD_FillPolygon(LeftArr, 3);
-	  	  	  }
+	  	  	BSP_LCD_FillPolygon(LeftArr, 3);
+  	  	  }
 
 
   }

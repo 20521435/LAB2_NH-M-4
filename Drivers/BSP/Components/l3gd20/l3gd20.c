@@ -355,6 +355,7 @@ void L3GD20_ReadXYZAngRate(float *pfData)
   float sensitivity = 0;
   int i =0;
   float tem[3] = {0};
+  float S[3] = {0};
   GYRO_IO_Read(&tmpreg,L3GD20_CTRL_REG4_ADDR,1);
   
   GYRO_IO_Read(tmpbuffer,L3GD20_OUT_X_L_ADDR,6);
@@ -393,15 +394,13 @@ void L3GD20_ReadXYZAngRate(float *pfData)
   /* Divide by sensitivity */
   for(i=0; i<3; i++)
   {
+	S[i] = tem[i];
     tem[i] = (float)(RawData[i] * sensitivity * 0.001);
     if ((tem[i] < 1 && tem[i] > 0) || (tem[i] > -1 && tem[i] < 0)) {
-    	pfData[i] = 0;
+    	tem[i] = 0;
     }
     else {
-    	if (tem[i] !=  0) {
-    		pfData[i] = tem[i] + tem[i];
-    	}
-    	else pfData[i] = tem[i];
+    		pfData[i] = S[i] + tem[i];
     }
   }
 }
